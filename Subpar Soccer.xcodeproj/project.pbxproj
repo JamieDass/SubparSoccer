@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DB35FF71D0D048300278AC8 /* ball_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DB35FF51D0D048300278AC8 /* ball_2.png */; };
+		7DB35FF81D0D048300278AC8 /* ball_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DB35FF61D0D048300278AC8 /* ball_8.png */; };
+		7DC850A21D0BB38400996933 /* UIBezierPath+Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC850A11D0BB38400996933 /* UIBezierPath+Arrow.swift */; };
 		7DE3F9041D09C1D10026856F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE3F9031D09C1D10026856F /* AppDelegate.swift */; };
 		7DE3F9061D09C1D10026856F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7DE3F9051D09C1D10026856F /* GameScene.sks */; };
 		7DE3F9081D09C1D10026856F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE3F9071D09C1D10026856F /* GameScene.swift */; };
@@ -16,6 +19,10 @@
 		7DE3F9121D09C1D10026856F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE3F9101D09C1D10026856F /* LaunchScreen.storyboard */; };
 		7DE3F91D1D09C1D10026856F /* Subpar_SoccerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE3F91C1D09C1D10026856F /* Subpar_SoccerTests.swift */; };
 		7DE3F9281D09C1D10026856F /* Subpar_SoccerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE3F9271D09C1D10026856F /* Subpar_SoccerUITests.swift */; };
+		7DE3F9361D09C4C30026856F /* PitchBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DE3F9351D09C4C30026856F /* PitchBG.png */; };
+		7DFE66AC1D0CF1BA00405D61 /* Whistle.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7DFE66AB1D0CF1BA00405D61 /* Whistle.wav */; };
+		7DFE670B1D0D009C00405D61 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DFE670A1D0D009C00405D61 /* ball.png */; };
+		7DFE670D1D0D01F000405D61 /* rollingBall.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7DFE670C1D0D01F000405D61 /* rollingBall.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7DB35FF51D0D048300278AC8 /* ball_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_2.png; sourceTree = "<group>"; };
+		7DB35FF61D0D048300278AC8 /* ball_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_8.png; sourceTree = "<group>"; };
+		7DC850A11D0BB38400996933 /* UIBezierPath+Arrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Arrow.swift"; sourceTree = "<group>"; };
 		7DE3F9001D09C1D10026856F /* Subpar Soccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Subpar Soccer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE3F9031D09C1D10026856F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DE3F9051D09C1D10026856F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -51,6 +61,10 @@
 		7DE3F9231D09C1D10026856F /* Subpar SoccerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Subpar SoccerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE3F9271D09C1D10026856F /* Subpar_SoccerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subpar_SoccerUITests.swift; sourceTree = "<group>"; };
 		7DE3F9291D09C1D10026856F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DE3F9351D09C4C30026856F /* PitchBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PitchBG.png; sourceTree = "<group>"; };
+		7DFE66AB1D0CF1BA00405D61 /* Whistle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Whistle.wav; sourceTree = "<group>"; };
+		7DFE670A1D0D009C00405D61 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
+		7DFE670C1D0D01F000405D61 /* rollingBall.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = rollingBall.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +115,18 @@
 		7DE3F9021D09C1D10026856F /* Subpar Soccer */ = {
 			isa = PBXGroup;
 			children = (
+				7DFE670C1D0D01F000405D61 /* rollingBall.atlas */,
 				7DE3F9031D09C1D10026856F /* AppDelegate.swift */,
 				7DE3F9051D09C1D10026856F /* GameScene.sks */,
+				7DC850A11D0BB38400996933 /* UIBezierPath+Arrow.swift */,
 				7DE3F9071D09C1D10026856F /* GameScene.swift */,
 				7DE3F9091D09C1D10026856F /* GameViewController.swift */,
+				7DFE66AB1D0CF1BA00405D61 /* Whistle.wav */,
 				7DE3F90B1D09C1D10026856F /* Main.storyboard */,
+				7DE3F9351D09C4C30026856F /* PitchBG.png */,
+				7DFE670A1D0D009C00405D61 /* ball.png */,
+				7DB35FF51D0D048300278AC8 /* ball_2.png */,
+				7DB35FF61D0D048300278AC8 /* ball_8.png */,
 				7DE3F90E1D09C1D10026856F /* Assets.xcassets */,
 				7DE3F9101D09C1D10026856F /* LaunchScreen.storyboard */,
 				7DE3F9131D09C1D10026856F /* Info.plist */,
@@ -235,10 +256,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DFE66AC1D0CF1BA00405D61 /* Whistle.wav in Resources */,
+				7DB35FF71D0D048300278AC8 /* ball_2.png in Resources */,
 				7DE3F9061D09C1D10026856F /* GameScene.sks in Resources */,
+				7DE3F9361D09C4C30026856F /* PitchBG.png in Resources */,
 				7DE3F9121D09C1D10026856F /* LaunchScreen.storyboard in Resources */,
 				7DE3F90F1D09C1D10026856F /* Assets.xcassets in Resources */,
+				7DFE670B1D0D009C00405D61 /* ball.png in Resources */,
+				7DFE670D1D0D01F000405D61 /* rollingBall.atlas in Resources */,
 				7DE3F90D1D09C1D10026856F /* Main.storyboard in Resources */,
+				7DB35FF81D0D048300278AC8 /* ball_8.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DE3F9081D09C1D10026856F /* GameScene.swift in Sources */,
+				7DC850A21D0BB38400996933 /* UIBezierPath+Arrow.swift in Sources */,
 				7DE3F90A1D09C1D10026856F /* GameViewController.swift in Sources */,
 				7DE3F9041D09C1D10026856F /* AppDelegate.swift in Sources */,
 			);
@@ -494,6 +522,7 @@
 				7DE3F92E1D09C1D10026856F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7DE3F92F1D09C1D10026856F /* Build configuration list for PBXNativeTarget "Subpar SoccerTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +531,7 @@
 				7DE3F9311D09C1D10026856F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7DE3F9321D09C1D10026856F /* Build configuration list for PBXNativeTarget "Subpar SoccerUITests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +540,7 @@
 				7DE3F9341D09C1D10026856F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
