@@ -18,7 +18,7 @@ class GameScene: SKScene {
 
     var bearWalkingFrames : [SKTexture]!
     
-    let lineDots = SKShapeNode(circleOfRadius: 7.5)
+    let lineDots = SKShapeNode(circleOfRadius: 5)
 
     var initX: CGFloat = 0.0
     var initY: CGFloat = 0.0
@@ -38,20 +38,20 @@ class GameScene: SKScene {
     var dotPath = CGPathCreateMutable()
     var dotLine = SKShapeNode()
     var touched:Bool = false
+    var kicked:Bool = false
     var bounced:Bool = false
     var touchedControl:Bool = false
     var ballAngle: CGFloat = 0.0
     var shotAngle: CGFloat = 0.0
     var shotSpin: CGFloat = 0.0
-
-    var ballKickedT: CFTimeInterval = CFTimeInterval(0)
-    var ballBouncedT: CFTimeInterval = CFTimeInterval(0)
-    var lastUpdateTime: CFTimeInterval = CFTimeInterval(0)
+    var angularDamping: CGFloat = 1.0
+    var linearDamping: CGFloat = 0.5
     
     var ballSpeed: CGFloat = 0.0
     var vY: CGFloat = 0.0
     var vZ: CGFloat = 0.0
     var Z: CGFloat = 0.0
+    var counter: Int = 1
     var whistleSound : AVAudioPlayer?
 //    var whistleSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Whistle", ofType: "wav")!)
     var audioPlayer = AVAudioPlayer()
@@ -84,7 +84,7 @@ class GameScene: SKScene {
         initX = gameball.position.x
         initY = gameball.position.y
         gameball.zPosition = 1
-        gameball.size = CGSize (width: 15, height: 15)
+        gameball.size = CGSize (width: 10, height: 10)
         gameball.name = "ball"
 //        SKTexture(imageNamed: "ball.png")
 
@@ -94,8 +94,8 @@ class GameScene: SKScene {
         gameball.physicsBody?.allowsRotation = true
         gameball.physicsBody?.friction = 0.5
         gameball.physicsBody?.restitution = 0
-        gameball.physicsBody?.linearDamping = 1.0
-        gameball.physicsBody?.angularDamping = 1.0
+        gameball.physicsBody?.linearDamping = linearDamping
+        gameball.physicsBody?.angularDamping = angularDamping
         gameball.physicsBody?.mass = 4.3
         gameball.physicsBody?.velocity = CGVectorMake(0,0)
         
@@ -243,6 +243,7 @@ class GameScene: SKScene {
         dlx = dx
         dly = dy
         nPoints = Int(distance/40)
+//        print(distance)
         lineAngle = atan2(dy,dx) //current angle
         lineAngle = (lineAngle >= 0 ? lineAngle : (2*CGFloat(M_PI) + lineAngle))
         lineDots.name = "line1"
@@ -266,8 +267,9 @@ class GameScene: SKScene {
         
         
         if(touchLocation.y > 206){
-        let speed: CGFloat = distance
+        let speed: CGFloat = distance*0.5
         ballSpeed = speed
+//            print(speed)
 
         ballAngle = lineAngle-CGFloat(M_PI)
         
@@ -276,12 +278,15 @@ class GameScene: SKScene {
             walkingBear()
             shotAngle = controlBallShape.position.y-contactPoint.position.y
             shotSpin = controlBallShape.position.x-contactPoint.position.x
-            ballKickedT = 0.0
-            vZ = speed*sin(shotAngle*CGFloat(M_PI)/180)
+//            print(speed)
+            vZ = speed*sin(shotAngle*CGFloat(M_PI)/180)*0.01
+            vZ = speed*sin(shotAngle*CGFloat(M_PI)/180)*0.01*0.5
+//            print(vZ)
+//            print("kick")
             Z = gameball.zPosition
             gameball.physicsBody?.velocity = CGVectorMake(cos(ballAngle)*speed,sin(ballAngle)*speed);
-            let angV: CGFloat = CGFloat(randomIntFrom(-40, to: 40))
             gameball.physicsBody?.angularVelocity = -0.5*shotSpin
+            kicked = true
 
             }
         }
@@ -301,27 +306,39 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         
-        let delta: CFTimeInterval = currentTime - lastUpdateTime
+        let dy: CGFloat = (gameball.physicsBody?.velocity.dy)!
+        let dx: CGFloat = (gameball.physicsBody?.velocity.dx)!
 
-        lastUpdateTime = currentTime
-        ballKickedT += delta
+        Z = Z+(vZ*1)
+//        print(Z)
+
+        if(dx == 0 && dy == 0){
+            vZ = 0.0
+        }else{
+//            vZ = vZ - 0.1635
+            vZ = vZ - 0.05
+        }
         
-        Z = Z+(vZ*0.005)
 
         if(Z > 1.0){
-            vZ = vZ - 2000*0.005
-            gameball.physicsBody?.linearDamping = 0.7
+//            vZ = vZ - 3000*0.005
+//            gameball.physicsBody?.linearDamping = linearDamping/10
+            gameball.physicsBody?.angularDamping = angularDamping
         }else{
-            gameball.physicsBody?.linearDamping = 1.0
-        }
-        if(Z <= 1.0){
+//            gameball.physicsBody?.linearDamping = linearDamping
+            gameball.physicsBody?.angularDamping = angularDamping*1000
+//            vZ = -0.6*vZ
+            vZ = 0.0
             Z = 1.0
-            vZ = -0.6*vZ
-            gameball.physicsBody?.angularDamping = 10000
-        }else{
-            gameball.physicsBody?.angularDamping = 1.0
         }
-        let spriteX: CGFloat = max(15, 15*0.08*Z)
+
+        
+//        print(vZ)
+        if(Z <= 1.0){
+        }else{
+//            print(Z)
+        }
+        let spriteX: CGFloat = max(10, 10*0.1*Z)
         gameball.size = CGSize (width: spriteX, height: spriteX)
         
         contactPoint.runAction(SKAction.moveTo(controlTouch, duration: 0))
@@ -329,30 +346,20 @@ class GameScene: SKScene {
         let av: CGFloat = (gameball.physicsBody?.angularVelocity)!
 //        let av: CGFloat
 
-        let dy: CGFloat = (gameball.physicsBody?.velocity.dy)!
-        let dx: CGFloat = (gameball.physicsBody?.velocity.dx)!
 
         let speed: CGFloat = sqrt((dx*dx)+(dy*dy))
         gameball.speed = speed
-//        if(speed > 0){walkingBear()}
-        
-        let uT: CGFloat = CGFloat(ballKickedT)
-        vY = sin(shotAngle*CGFloat(M_PI)/180)*(ballSpeed)
-//
-        let sinth: CGFloat = sin(shotAngle*CGFloat(M_PI)/180)
-        var ballHeight: CGFloat = 1.0
 
-        let currentHeight: CGFloat = max(1.0,ballHeight)
-
-        if(currentHeight == 1.0){
-            ballKickedT = 0.0
-            ballSpeed = speed
-        }
-        ballHeight = (ballSpeed*uT*sinth) - (98.1*uT*uT)
-
-        
         if(dx == 0 && dy == 0){
+//            contactPoint.position = controlBall.position
+            if(kicked){
+            controlTouch = controlBall.position
+            }
+            kicked = false
+            Z=1.0
+            vZ=0.0
             gameball.removeAllActions()
+        }else{
         }
 
         
@@ -378,7 +385,8 @@ class GameScene: SKScene {
         // apply Magnus force
         let rightAnglex: CGFloat = CGFloat(cosf(Float(rightAngle)))
         let rightAngley: CGFloat = CGFloat(sinf(Float(rightAngle)))
-        let magForce: CGFloat = -0.23*av*speed
+//        let magForce: CGFloat = -0.23*av*speed
+            let magForce: CGFloat = -0.13*av*speed
         let force: CGVector = CGVectorMake(rightAnglex*magForce, rightAngley*magForce)
         gameball.physicsBody?.applyForce(force)
         
@@ -390,7 +398,7 @@ class GameScene: SKScene {
             dotLine.path = dotPath
             dotLine.fillColor = UIColor.clearColor()
             dotLine.strokeColor = UIColor.redColor()
-            dotLine.lineWidth = 5.5
+            dotLine.lineWidth = 4.5
             let one : CGFloat = 1
             let two : CGFloat = 10
             let pattern = [one,two]
@@ -403,11 +411,10 @@ class GameScene: SKScene {
             dotNodes.append(dotLine)
         }
         
-
-//        print(shotAngle)
-        
         
         if(gameball.position.x < 28 || gameball.position.x > 722.5 || gameball.position.y < 241.5 || gameball.position.y > 1306 ){
+            Z = 1.0
+            vZ=0.0
             whistleSound?.play()
             self.setupLevel()
         }
