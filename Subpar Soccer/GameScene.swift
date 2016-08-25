@@ -7,8 +7,6 @@
 //
 
 import SpriteKit
-import AVFoundation
-
 
 class GameScene: SKScene {
     
@@ -33,29 +31,6 @@ class GameScene: SKScene {
     var vZ: CGFloat = 0.0 // Velocity of the ball in the z-plane
     var Z: CGFloat = 0.0 // Position of the ball in the z-plane
     let contactPoint = SKShapeNode(circleOfRadius: 10) // Reticle of the contact point on the ball
-    
-    //    var whistleSound : AVAudioPlayer?
-    //    var audioPlayer = AVAudioPlayer()
-
-    
-//    
-//    func setupAudioPlayerWithFile(file:NSString, type:NSString) -> AVAudioPlayer?  {
-//        //1
-//        let path = NSBundle.mainBundle().pathForResource(file as String, ofType: type as String)
-//        let url = NSURL.fileURLWithPath(path!)
-//        
-//        //2
-//        var audioPlayer:AVAudioPlayer?
-//        
-//        // 3
-//        do {
-//            try audioPlayer = AVAudioPlayer(contentsOfURL: url)
-//        } catch {
-//            print("Player not available")
-//        }
-//        
-//        return audioPlayer
-//    }
     
     func setupLevel(){
         initGameBall()
@@ -136,9 +111,6 @@ class GameScene: SKScene {
      Add initial nodes and setup the level.
      */
     override func didMoveToView(view: SKView) {
- //        audioPlayer = AVAudioPlayer(contentsOfURL: whistleSound, fileTypeHint: nil)
-//        audioPlayer.prepareToPlay()
-
         controlBall = SKSpriteNode(texture: SKTexture(imageNamed: "ball.png"))
         controlBall.position = CGPoint(x:CGRectGetMidX(self.frame), y: 109)
         controlBall.zPosition = 1
@@ -375,7 +347,6 @@ class GameScene: SKScene {
         if(gameball.position.x < 28 || gameball.position.x > 722.5 || gameball.position.y < 241.5 || gameball.position.y > 1306 ){
             ballOutOfPlay()
         }
-
     }
     
     /**
@@ -390,8 +361,8 @@ class GameScene: SKScene {
             CGPathAddLineToPoint(dotPath, nil, gameball.position.x-dx1, gameball.position.y-dy1)
             dotLine.path = dotPath
             dotLine.fillColor = UIColor.clearColor()
-            
             dotLine.lineWidth = 4.5
+            
             if(ballSpeed > 0.0){
                 dotLine.strokeColor = UIColor.grayColor()
                 dotLine.alpha = 0.7
@@ -427,7 +398,6 @@ class GameScene: SKScene {
         // Calculate the right angle with respect to the ball's direction of motion. The direction of the right angle is determined by the angular velocity and its orientation with respect to the ball's motion.
         var rightAngle: CGFloat = direction+(CGFloat(M_PI_2)*rotationDir)
         rightAngle = (rightAngle > 2*CGFloat(M_PI) ? rightAngle - (2*CGFloat(M_PI)) : rightAngle)
-        
         let rightAnglex: CGFloat = CGFloat(cosf(Float(rightAngle)))
         let rightAngley: CGFloat = CGFloat(sinf(Float(rightAngle)))
         
@@ -442,7 +412,6 @@ class GameScene: SKScene {
     func ballOutOfPlay(){
         Z = 1.0
         vZ=0.0
-        //            whistleSound?.play()
         self.setupLevel()
     }
 }
