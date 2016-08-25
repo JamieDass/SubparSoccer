@@ -4,7 +4,7 @@ iOS Touch-and-Drag Soccer Game
 A native iOS app created using SpriteKit in Xcode.
 Written in Swift.
 
-![Screenshot](SubparSoccerScreenshot.png?raw=true)
+![Screenshot](SubparSoccerScreenshot.png)
 
 Set the contact point by moving the red reticle on the ball at the bottom.
 
