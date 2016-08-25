@@ -2,8 +2,8 @@
 //  UIBezierPath+Arrow.swift
 //  Subpar Soccer
 //
-//  Created by James Dassoulas on 2016-06-10.
-//  Copyright © 2016 Jetliner. All rights reserved.
+//  Created by Marcus Wermuth
+//  https://gist.github.com/mwermuth/07825df27ea28f5fc89a
 //
 
 import Foundation
