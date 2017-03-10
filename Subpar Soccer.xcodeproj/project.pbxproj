@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7DC18DFF1D6E81BB004AF717 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DC18DFE1D6E81BB004AF717 /* LaunchScreen.storyboard */; };
+		7D65340C1E731724008A7E84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D65340B1E731724008A7E84 /* LaunchScreen.storyboard */; };
 		7DC18E011D6E81E6004AF717 /* JetlinerBlueOrangeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC18E001D6E81E6004AF717 /* JetlinerBlueOrangeLogo.png */; };
 		7DE3F9041D09C1D10026856F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE3F9031D09C1D10026856F /* AppDelegate.swift */; };
 		7DE3F9061D09C1D10026856F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7DE3F9051D09C1D10026856F /* GameScene.sks */; };
@@ -41,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7DC18DFD1D6E81BB004AF717 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7D65340B1E731724008A7E84 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DC18E001D6E81E6004AF717 /* JetlinerBlueOrangeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JetlinerBlueOrangeLogo.png; sourceTree = "<group>"; };
 		7DE3F9001D09C1D10026856F /* Subpar Soccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Subpar Soccer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE3F9031D09C1D10026856F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 				7DE3F9071D09C1D10026856F /* GameScene.swift */,
 				7DE3F9091D09C1D10026856F /* GameViewController.swift */,
 				7DE3F90B1D09C1D10026856F /* Main.storyboard */,
-				7DC18DFE1D6E81BB004AF717 /* LaunchScreen.storyboard */,
+				7D65340B1E731724008A7E84 /* LaunchScreen.storyboard */,
 				7DFE670C1D0D01F000405D61 /* rollingBall.atlas */,
 				7DE3F90E1D09C1D10026856F /* Assets.xcassets */,
 				7DC18E021D6E81FD004AF717 /* Media */,
@@ -258,7 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DC18DFF1D6E81BB004AF717 /* LaunchScreen.storyboard in Resources */,
+				7D65340C1E731724008A7E84 /* LaunchScreen.storyboard in Resources */,
 				7DFE66AC1D0CF1BA00405D61 /* Whistle.wav in Resources */,
 				7DE3F9061D09C1D10026856F /* GameScene.sks in Resources */,
 				7DE3F9361D09C4C30026856F /* PitchBG.png in Resources */,
@@ -329,15 +329,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7DC18DFE1D6E81BB004AF717 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7DC18DFD1D6E81BB004AF717 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			path = ../../RocketScore/RocketScore;
-			sourceTree = "<group>";
-		};
 		7DE3F90B1D09C1D10026856F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
