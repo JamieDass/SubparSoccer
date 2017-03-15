@@ -199,8 +199,10 @@ class GameScene: SKScene {
             controlTouch = location
         }else{
             touched = true
-            CGPathMoveToPoint(dotPath, nil, gameball.position.x, gameball.position.y)
-            CGPathAddLineToPoint(dotPath, nil, gameball.position.x-dx1, gameball.position.y-dy1)
+            dotPath.move(to: CGPoint(x: gameball.position.x, y: gameball.position.y))
+            dotPath.addLine(to: CGPoint(x: gameball.position.x-dx1, y: gameball.position.y-dy1))
+//            CGPathMoveToPoint(dotPath, nil, gameball.position.x, gameball.position.y)
+//            CGPathAddLineToPoint(dotPath, nil, gameball.position.x-dx1, gameball.position.y-dy1)
         }
     }
     
@@ -357,8 +359,10 @@ class GameScene: SKScene {
         if(touched){
             dotLine.removeFromParent()
             dotPath = CGMutablePath()
-            CGPathMoveToPoint(dotPath, nil, gameball.position.x, gameball.position.y)
-            CGPathAddLineToPoint(dotPath, nil, gameball.position.x-dx1, gameball.position.y-dy1)
+            dotPath.move(to: CGPoint(x: gameball.position.x, y: gameball.position.y))
+            dotPath.addLine(to: CGPoint(x: gameball.position.x-dx1, y: gameball.position.y-dy1))
+//            CGPathMoveToPoint(dotPath, nil, gameball.position.x, gameball.position.y)
+//            CGPathAddLineToPoint(dotPath, nil, gameball.position.x-dx1, gameball.position.y-dy1)
             dotLine.path = dotPath
             dotLine.fillColor = UIColor.clear
             dotLine.lineWidth = 4.5
